@@ -1,15 +1,22 @@
-<p>
-  <strong>Commenter:</strong>
-  <%= comment.commenter %>
-</p>
+<div class="d-flex flex-row comment-row m-t-0">
 
-<p>
-  <strong>Comment:</strong>
-  <%= comment.body %>
-</p>
+    <div class="comment-text w-100">
 
-<p>
-  <%= link_to 'Destroy Comment', [comment.article, comment],
-              method: :delete,
-              data: { confirm: "Are you sure?" } %>
-</p>
+        <h6 class="font-medium"><%= comment.commenter %></h6> <span class="m-b-15 d-block"><%= comment.body %></span>
+
+        <div class="comment-footer">
+
+          <span class="text-muted float-right"><%= comment.updated_at.strftime("%Y-%d-%m %H:%M") %></span>
+
+          <%= link_to 'Destroy Comment', [@article, comment],
+
+            method: :delete,
+
+            data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
+
+        </div>
+
+    </div>
+
+</div>
+

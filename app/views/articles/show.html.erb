@@ -1,16 +1,57 @@
 <h1><%= @article.title %></h1>
 
+
+
 <p><%= @article.body %></p>
 
-<ul>
-  <li><%= link_to "Edit", edit_article_path(@article) %></li>
-  <li><%= link_to "Destroy", article_path(@article),
+
+
+<span><%= link_to "Edit", edit_article_path(@article), class: "btn btn-success btn-sm" %></span>
+
+<span><%= link_to "Destroy", article_path(@article),
+
                   method: :delete,
-                  data: { confirm: "Are you sure?" } %></li>
-</ul>
 
-<h2>Comments</h2>
-<%= render @article.comments %>
+                  data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %></span>
 
-<h2>Add a comment:</h2>
-<%= render 'comments/form' %>
+
+
+<div class="row d-flex justify-content-center mt-100 mb-100">
+
+    <div class="col-lg-8">
+
+        <div class="card">
+
+            <div class="card-body">
+
+                <h4 class="card-title">Comments</h4>
+
+            </div>
+
+            <div class="comment-widgets">
+
+              <%= render @article.comments %>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-4">
+
+      <div class="card">
+
+        <div class="card-body">
+
+            <h4 class="card-title">Add a comment:</h4>
+
+        </div>
+
+        <%= render 'comments/form' %>
+
+      </div>
+
+    </div>
+
+</div>
