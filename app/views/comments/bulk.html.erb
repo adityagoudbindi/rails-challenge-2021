@@ -1,0 +1,21 @@
+<%= form_for @comment, :url => comments_bulk_insert_path do |form| %>
+  <p>
+    <%= form.label :commenter %><br>
+    <%= form.text_field :commenter %>
+  </p>
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+  </p>
+  <p>
+    <%= form.label :status %><br>
+    <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
+  </p>
+  <p>
+    <%= form.label :article_ids, "Articles" %>
+    <%= form.collection_select :article_ids, Article.all, :id, :title, {}, { multiple: true, class: "form-control" } %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
